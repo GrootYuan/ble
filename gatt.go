@@ -133,7 +133,7 @@ func Connect(ctx context.Context, f AdvFilter) (Client, error) {
 		}
 	}()
 
-	ch := make(chan Advertisement)
+	ch := make(chan Advertisement,1)
 	fn := func(a Advertisement) {
 		cancel()
 		ch <- a
